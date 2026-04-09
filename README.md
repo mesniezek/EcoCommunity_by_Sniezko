@@ -61,6 +61,8 @@ npx expo start
 * iOS Simulator: Press i in the terminal.
 * Android Emulator: Press a in the terminal.
 
+---
+
 ## 👥 Author
 * Mikołaj Śnieżko
 * mikolajsniezko@gmail.com
