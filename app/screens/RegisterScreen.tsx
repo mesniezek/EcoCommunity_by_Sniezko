@@ -4,27 +4,34 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { RootStackParamList } from '../../App';
 import { StackScreenProps } from '@react-navigation/stack';
 
-type Props = StackScreenProps<RootStackParamList, 'Login'>;
-export default function LoginScreen({navigation}: Props) {
+type Props = StackScreenProps<RootStackParamList, 'Register'>;
+export default function RegisterScreen({navigation}: Props) {
 
   const [login, onChangeLogin] = React.useState('');
   const [password, onChangePassword] = React.useState('');
+  const [confirmPassword, onChangeConfirmPassword] = React.useState('');
+  const [passwordVisible, setPasswordVisible] = React.useState(false);
+  const [confirmPasswordVisible, setConfirmPasswordVisible] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState('');
 
-    const validateForm = () => {
-    if (!login || !password) {
+  const validateForm = () => {
+    if (!login || !password || !confirmPassword) {
       setErrorMessage('Wszystkie pola są wymagane.');
+      return false;
+    }
+    if (password !== confirmPassword) {
+      setErrorMessage('Hasła muszą być takie same.');
       return false;
     }
     setErrorMessage('');
     return true;
   }
 
-  const confirmLogin = () => {
+  const confirmRegistration = () => {
     if (validateForm()) {
-        // Tutaj można dodać logikę logowania użytkownika, np. wysłanie danych do serwera
-        alert('Logowanie zakończone sukcesem!');
-        navigation.navigate('Main');
+        // Tutaj można dodać logikę rejestracji użytkownika, np. wysłanie danych do serwera
+        alert('Rejestracja zakończona sukcesem!');
+        navigation.goBack();
     }
   }
 
@@ -57,12 +64,42 @@ export default function LoginScreen({navigation}: Props) {
 
             <View style={styles.input}>
               <TextInput
-                style={{paddingLeft: 25, flex: 1}}
+                style={{paddingLeft: 25, paddingRight: 40, flex: 1}}
                 onChangeText={onChangePassword}
                 value={password}
                 placeholder='Hasło'
-                secureTextEntry={true}
+                secureTextEntry={!passwordVisible}
               />
+             <TouchableOpacity 
+                style={styles.showPassword}
+                onPress={() => setPasswordVisible(!passwordVisible)}>
+                <Image
+                    source={passwordVisible ? require('../assets/eye_open.png') : require('../assets/eye_closed.png')}
+                    style={styles.showPassword}
+                ></Image>
+              </TouchableOpacity>
+              <Image
+                source={require('../assets/padlock.png')}
+                style={styles.image}
+              ></Image>
+            </View>
+
+            <View style={styles.input}>
+              <TextInput
+                style={{paddingLeft: 25, paddingRight: 40, flex: 1}}
+                onChangeText={onChangeConfirmPassword}
+                value={confirmPassword}
+                placeholder='Powtórz hasło'
+                secureTextEntry={!confirmPasswordVisible}
+              />
+              <TouchableOpacity 
+                style={styles.showPassword}
+                onPress={() => setConfirmPasswordVisible(!confirmPasswordVisible)}>
+                <Image
+                    source={confirmPasswordVisible ? require('../assets/eye_open.png') : require('../assets/eye_closed.png')}
+                    style={styles.showPassword}
+                ></Image>
+              </TouchableOpacity>
               <Image
                 source={require('../assets/padlock.png')}
                 style={styles.image}
@@ -77,15 +114,11 @@ export default function LoginScreen({navigation}: Props) {
                 ) : null
             }
 
-            <Text style={styles.forgotPassword} onPress={() => alert('Funkcja przypomnienia hasła nie jest jeszcze dostępna.')}>
-              Zapomniałeś hasła?
-            </Text>
-                        
-            <TouchableOpacity
-              onPress={confirmLogin}
+            <TouchableOpacity 
               style={styles.logInButtonContainer} 
+              onPress={confirmRegistration}
             >
-              <Text style={styles.logInButton}>Zaloguj</Text>
+              <Text style={styles.logInButton}>Zarejestruj się</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 
@@ -108,10 +141,6 @@ const styles = StyleSheet.create({
       justifyContent: 'flex-end',
       backgroundColor: '#f8f4f4',
       alignItems: 'center',
-    },
-    forgotPassword: {
-      fontSize: 16,
-      color: '#045634d2',
     },
     goBackButton: {
       color: '#045634d2',
@@ -175,5 +204,14 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       borderColor: '#045634d2',
       borderRadius: 25,
-    }
+    },
+    showPassword: {
+        width: 20,
+        height: 20,
+        position: 'absolute',
+        right: 5,
+        top: 5,
+        opacity: 0.7,
+        color: '#045634d2',
+    },
 });
