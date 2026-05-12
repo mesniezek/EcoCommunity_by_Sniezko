@@ -68,4 +68,5 @@ npx expo start
 * mikolajsniezko@gmail.com
 
 <!--START_SECTION:activity-->
+
 <!--END_SECTION:activity-->
