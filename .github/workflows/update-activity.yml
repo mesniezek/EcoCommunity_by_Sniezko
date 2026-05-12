@@ -1,15 +1,20 @@
-name: Update GitHub Activity
+name: Weekly Activity Report
 
 on:
   schedule:
-    - cron: '0 * * * *' # Uruchamiaj co godzinę
-  workflow_dispatch: # Pozwala uruchomić ręcznie
+    - cron: '0 6 * * 0' # W każdą niedzielę o 06:00
+  workflow_dispatch:   # To pozwoli nam uruchomić raport RĘCZNIE teraz
+
+permissions:
+  contents: read
+  issues: write        # KLUCZOWE: bot musi mieć prawo do tworzenia Issue
 
 jobs:
-  update-readme:
+  report:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: jamesgeorge007/github-activity-readme@master
-        env:
+      - uses: wow-actions/activity-report@v1
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Opcjonalnie możesz dodać:
+          # days: 30 (żeby sprawdził ostatni miesiąc)
