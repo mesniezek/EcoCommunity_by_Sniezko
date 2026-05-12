@@ -66,3 +66,6 @@ npx expo start
 ## 👥 Author
 * Mikołaj Śnieżko
 * mikolajsniezko@gmail.com
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
