@@ -1,17 +1,18 @@
-name: Weekly Activity Report
-
+name: GitHub Metrics
 on:
-  workflow_dispatch: # Pozwala odpalić ręcznie
-
-permissions:
-  contents: read
-  issues: write
+  schedule: [{cron: "0 0 * * *"}] # Raz dziennie
+  workflow_dispatch:              # Ręcznie
 
 jobs:
-  report:
+  github-metrics:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: wow-actions/activity-report@v1
+      - uses: lowlighter/metrics@latest
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          days: 60 # Zwiększamy zakres do 45 dni, żeby złapał Twoje commity sprzed miesiąca
+          token: ${{ secrets.GITHUB_TOKEN }}
+          user: mesniezek
+          template: classic
+          base: header, activity, community, repositories, metadata
+          config_timezone: Europe/Warsaw
