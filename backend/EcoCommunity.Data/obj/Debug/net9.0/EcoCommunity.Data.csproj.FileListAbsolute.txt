@@ -1,0 +1,13 @@
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\bin\Debug\net9.0\EcoCommunity.Data.deps.json
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\bin\Debug\net9.0\EcoCommunity.Data.dll
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\bin\Debug\net9.0\EcoCommunity.Data.pdb
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.csproj.AssemblyReference.cache
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.AssemblyInfoInputs.cache
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.AssemblyInfo.cs
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.csproj.CoreCompileInputs.cache
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.sourcelink.json
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.dll
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\refint\EcoCommunity.Data.dll
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\EcoCommunity.Data.pdb
+D:\Rider Projects\ecocommunity\backend\EcoCommunity.Data\obj\Debug\net9.0\ref\EcoCommunity.Data.dll
